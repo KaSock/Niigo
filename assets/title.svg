@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="456" height="42" viewBox="0 0 456 42">
+  <title>25時、ナイトコードで。</title>
+  <desc>Hand-drawn geometric lettering based on the film reference, with narrow stems and angular terminals.</desc>
+  <g fill="#f5f2ff">
+    <!-- 2 / 5 -->
+    <path transform="translate(2)" d="M1 7H22V17L5 28V33H22V35H1V27L18 15V9H1Z"/>
+    <path transform="translate(36)" d="M22 7H2V21L18 28V33H1V35H22V26L6 19V9H22Z"/>
+    <!-- 時 -->
+    <g transform="translate(76)">
+      <path d="M1 9H11V33H1ZM3 11V31H8V11Z"/>
+      <path d="M3 20H9V21H3ZM21 5H24V17H21ZM15 10H31V11H15ZM13 17H33V18H13ZM13 22H33V23H13ZM26 19H29V35L23 37V35L26 34ZM16 26L21 30L19 32L15 27Z"/>
+    </g>
+    <!-- 、 -->
+    <path transform="translate(120)" d="M2 29L6 28L11 37L9 39Z"/>
+    <!-- ナ -->
+    <path transform="translate(150)" d="M0 15L30 13V15L0 17ZM18 6H22L20 23L9 36L7 35L17 22Z"/>
+    <!-- イ -->
+    <path transform="translate(192)" d="M2 24L28 5L30 8L17 17V36H14V19L3 25Z"/>
+    <!-- ト -->
+    <path transform="translate(235)" d="M9 5H13V36H9ZM13 16L29 24L27 27L13 18Z"/>
+    <!-- コ -->
+    <path transform="translate(274)" d="M1 9H29V34H1V32H25V11H1Z"/>
+    <!-- ー -->
+    <path transform="translate(316)" d="M1 20L29 19V21L1 22Z"/>
+    <!-- ド -->
+    <path transform="translate(358)" d="M9 5H13V36H9ZM13 16L29 24L27 27L13 18ZM22 3L25 8L23 9L20 4ZM28 1L31 6L29 7L26 2Z"/>
+    <!-- で -->
+    <path transform="translate(400)" d="M0 13L28 9L29 12L16 14L9 23V28L15 34L25 35V37L13 36L5 29V23L12 15L1 17ZM24 3L27 8L25 9L22 4ZM30 1L33 6L31 7L28 2Z"/>
+    <!-- 。 -->
+    <path transform="translate(442)" d="M5 29L10 31V37L5 39L1 37V31ZM5 31L3 32V36L5 37L8 36V32Z"/>
+  </g>
+</svg>

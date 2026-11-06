@@ -52,16 +52,26 @@ button:focus-visible { outline: 1px solid #fff; outline-offset: 8px; }
 
 .centerpiece {
   width: min(70%, 1000px);
+  min-width: 0;
   text-align: center;
   padding-block: clamp(100px, 14vh, 180px) clamp(70px, 9vh, 120px);
 }
 h1 {
   margin: 0 0 clamp(65px, 9vh, 125px);
-  font-size: clamp(16px, 2.6vw, 36px);
+  font-size: clamp(16px, 2.6vw, 40px);
   font-weight: 400;
   letter-spacing: .2em;
   white-space: nowrap;
   text-shadow: 0 0 10px #c1b4ff66;
+  line-height: 1.2;
+}
+.title-art {
+  display: block;
+  width: 15em;
+  height: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  filter: drop-shadow(0 0 5px #c1b4ff66);
 }
 .countdown {
   display: grid;
@@ -83,8 +93,9 @@ h1 {
 }
 .separator i { width: 22%; aspect-ratio: .75; background: currentColor; border-radius: 1px; }
 .unit { display: block; height: clamp(14px, 1.8vw, 24px); margin-top: clamp(25px, 3.4vw, 46px); }
-.unit svg, .coming-soon svg { display: block; height: 100%; max-width: 100%; margin-inline: auto; overflow: visible; }
-.coming-soon { height: clamp(15px, 1.9vw, 26px); margin: clamp(70px, 10vh, 140px) 0 0; }
+.unit svg, .coming-soon img { display: block; height: 100%; max-width: 100%; margin-inline: auto; overflow: visible; }
+.coming-soon { height: clamp(15px, 1.9vw, 34px); margin: clamp(70px, 10vh, 140px) 0 0; }
+.coming-soon img { width: auto; filter: drop-shadow(0 0 4px #c1b4ff40); }
 .verse {
   position: absolute;
   top: 28%;
@@ -123,7 +134,7 @@ dialog p { font-size: 14px; line-height: 2; }
   .centerpiece { width: 88%; padding-block: 120px; }
   h1 { font-size: clamp(15px, 4.2vw, 25px); letter-spacing: .12em; margin-bottom: 80px; }
   .unit { margin-top: 24px; height: 13px; }
-  .coming-soon { margin-top: 80px; height: 17px; }
+  .coming-soon { margin-top: 80px; height: 24px; }
 }
 
 @media (max-height: 520px) and (min-width: 601px) and (orientation: landscape) {
@@ -132,11 +143,10 @@ dialog p { font-size: 14px; line-height: 2; }
   .centerpiece { width: min(65%, 640px); padding-block: 38px; }
   h1 { margin-bottom: 35px; font-size: 22px; }
   .unit { margin-top: 18px; height: 15px; }
-  .coming-soon { margin-top: 32px; height: 17px; }
+  .coming-soon { margin-top: 32px; height: 24px; }
   .verse { top: 20%; font-size: 11px; }
 }
 
-/* Phones and tablets: only portrait moves the verses above/below the timer. */
 @media (max-width: 1100px) and (orientation: portrait) {
   .centerpiece {
     width: 82%;

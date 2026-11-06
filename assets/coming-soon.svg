@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="226" height="32" viewBox="0 0 226 32">
+  <title>COMING SOON</title>
+  <desc>Hand-drawn condensed small capitals with fine crossbars, heavier stems and angular joins.</desc>
+  <g fill="#f5f2ff">
+    <!-- C: the opening capital rises above the small capitals. -->
+    <path transform="translate(2)" d="M13 4H1V27H13V26H4V5H13Z"/>
+    <!-- O -->
+    <path transform="translate(23)" d="M1 8H13V27H1ZM4 9V26H10V9Z"/>
+    <!-- M -->
+    <path transform="translate(45)" d="M1 27V8H4L8 14L12 8H15V27H12V11L8 17L4 11V27Z"/>
+    <!-- I -->
+    <path transform="translate(70)" d="M1 8H10V9H7V26H10V27H1V26H4V9H1Z"/>
+    <!-- N -->
+    <path transform="translate(88)" d="M1 27V8H4L12 23V8H13V27H10L2 12V27Z"/>
+    <!-- G -->
+    <path transform="translate(110)" d="M13 8H1V27H13V17H8V18H10V26H4V9H13Z"/>
+    <!-- S -->
+    <path transform="translate(145)" d="M13 8H1V17L10 21V26H1V27H13V19L4 15V9H13Z"/>
+    <!-- O / O -->
+    <path transform="translate(166)" d="M1 8H13V27H1ZM4 9V26H10V9Z"/>
+    <path transform="translate(187)" d="M1 8H13V27H1ZM4 9V26H10V9Z"/>
+    <!-- N -->
+    <path transform="translate(208)" d="M1 27V8H4L12 23V8H13V27H10L2 12V27Z"/>
+  </g>
+</svg>
