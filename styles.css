@@ -34,6 +34,30 @@ button:focus-visible { outline: 1px solid #fff; outline-offset: 8px; }
 }
 .menu-button span { width: 100%; height: 2px; background: currentColor; }
 
+.music-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: auto;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.music-disc {
+  display: block;
+  width: 30px;
+  height: 30px;
+  animation: music-spin 8s linear infinite;
+  animation-play-state: paused;
+  opacity: .65;
+}
+.music-button.is-playing .music-disc { animation-play-state: running; opacity: 1; }
+.music-button:hover .music-disc { opacity: 1; }
+@keyframes music-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .music-disc { animation: none; } }
+
 .scene {
   min-height: calc(100svh - 64px);
   position: relative;
@@ -41,7 +65,7 @@ button:focus-visible { outline: 1px solid #fff; outline-offset: 8px; }
   isolation: isolate;
   display: grid;
   place-items: center;
-  background: #15116b url("background.png") center / cover no-repeat;
+  background: #15116b url("background.webp") center / cover no-repeat;
 }
 .scene-shade {
   position: absolute;

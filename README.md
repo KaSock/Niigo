@@ -9,4 +9,4 @@
 页面每次根据真实时间戳重新计算，切换标签页或电脑休眠后会重新同步。  
 夏令时切换时按浏览器的日期规则处理。
 
-<img width="1065" height="491" alt="图片" src="https://github.com/user-attachments/assets/f0198059-8820-4f6c-aa30-0958047c9ab4" />
+<img width="1092" height="502" alt="图片" src="https://github.com/user-attachments/assets/0ffb6f71-c4f0-4a09-8612-ff73d7719044" />

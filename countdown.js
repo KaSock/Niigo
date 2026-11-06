@@ -121,4 +121,71 @@ function startCountdown() {
   });
 }
 
-if (typeof document !== "undefined") startCountdown();
+function startMusic() {
+  const music = document.getElementById("background-music");
+  const button = document.querySelector(".music-button");
+  music.volume = 0.5;
+
+  function showState(playing) {
+    button.classList.toggle("is-playing", playing);
+    button.setAttribute("aria-pressed", String(playing));
+    const label = playing ? "BGMを一時停止" : "BGMを再生";
+    button.setAttribute("aria-label", label);
+    button.title = label;
+  }
+
+  async function play() {
+    try {
+      await music.play();
+      if (!music.paused) {
+        showState(true);
+        stopGestureRetry();
+      }
+    } catch (error) {
+      // 有声自动播放可能被浏览器阻止，等待用户操作后重试。
+      if (error.name === "NotAllowedError" && music.paused) {
+        button.title = "クリックしてBGMを再生";
+      }
+    }
+  }
+
+  function stopGestureRetry() {
+    document.removeEventListener("pointerdown", retryOnGesture);
+    document.removeEventListener("keydown", retryOnGesture);
+  }
+
+  function retryOnGesture(event) {
+    if (button.contains(event.target)) return;
+    if (event.type === "keydown" && !["Enter", " "].includes(event.key)) return;
+    void play();
+  }
+
+  music.addEventListener("playing", () => {
+    showState(true);
+    stopGestureRetry();
+  });
+  music.addEventListener("pause", () => showState(false));
+  music.addEventListener("ended", () => showState(false));
+  music.addEventListener("error", () => {
+    showState(false);
+    button.title = "BGMを読み込めませんでした。クリックして再試行";
+  });
+  button.addEventListener("click", () => {
+    stopGestureRetry();
+    if (music.paused) {
+      if (music.error) music.load();
+      void play();
+    } else {
+      music.pause();
+    }
+  });
+
+  document.addEventListener("pointerdown", retryOnGesture);
+  document.addEventListener("keydown", retryOnGesture);
+  void play();
+}
+
+if (typeof document !== "undefined") {
+  startCountdown();
+  startMusic();
+}
