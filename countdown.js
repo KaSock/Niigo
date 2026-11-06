@@ -124,7 +124,7 @@ function startCountdown() {
 function startMusic() {
   const music = document.getElementById("background-music");
   const button = document.querySelector(".music-button");
-  music.volume = 0.5;
+  music.volume = 0.1;
 
   function showState(playing) {
     button.classList.toggle("is-playing", playing);
@@ -142,7 +142,6 @@ function startMusic() {
         stopGestureRetry();
       }
     } catch (error) {
-      // 有声自动播放可能被浏览器阻止，等待用户操作后重试。
       if (error.name === "NotAllowedError" && music.paused) {
         button.title = "クリックしてBGMを再生";
       }
