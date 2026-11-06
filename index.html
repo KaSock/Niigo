@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171549">
+    <meta name="description" content="25時、ナイトコードで。 — 次の25時まで。">
+    <title>25時、ナイトコードで。</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="countdown.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=G-ZVYXMWZWC1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="menu-button" type="button" aria-label="インフォメーションを開く" aria-haspopup="dialog" aria-controls="information">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main class="scene">
+      <div class="scene-shade" aria-hidden="true"></div>
+      <section class="centerpiece" aria-labelledby="site-title">
+        <h1 id="site-title">25時、ナイトコードで。</h1>
+        <p class="verse verse-left">心が消えてしまった、<br>あなたに届きますように。</p>
+        <div class="countdown" role="timer" aria-live="off" aria-label="次の25時まで">
+          <div class="time-part">
+            <div class="digits" id="hours" aria-hidden="true"></div>
+            <span class="unit" data-vector-word="Hours" aria-hidden="true">Hours</span>
+          </div>
+          <span class="separator" aria-hidden="true"><i></i><i></i></span>
+          <div class="time-part">
+            <div class="digits" id="minutes" aria-hidden="true"></div>
+            <span class="unit" data-vector-word="Minutes" aria-hidden="true">Minutes</span>
+          </div>
+          <span class="separator" aria-hidden="true"><i></i><i></i></span>
+          <div class="time-part">
+            <div class="digits" id="seconds" aria-hidden="true"></div>
+            <span class="unit" data-vector-word="Seconds" aria-hidden="true">Seconds</span>
+          </div>
+        </div>
+        <p class="verse verse-right">立ち止まってしまった、<br>耳を塞いでしまった、</p>
+        <p class="coming-soon" data-vector-word="COMING SOON">COMING SOON</p>
+        <noscript><p class="no-script">カウントダウンには JavaScript を有効にしてください。</p></noscript>
+      </section>
+    </main>
+
+    <dialog id="information" aria-labelledby="information-title">
+      <button class="close-button" type="button" aria-label="閉じる">×</button>
+      <h2 id="information-title">25時、ナイトコードで。</h2>
+      <p>次の25時まで。</p>
+      <p><time id="target-time"></time></p>
+      <p class="dialog-note">お使いの端末の現地時刻で、午前1時をお知らせします。</p>
+    </dialog>
+  </body>
+</html>

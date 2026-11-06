@@ -1,0 +1,163 @@
+:root {
+  color-scheme: dark;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  color: #f5f2ff;
+  background: #080727;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { color: inherit; font: inherit; }
+button:focus-visible { outline: 1px solid #fff; outline-offset: 8px; }
+
+.site-header {
+  height: 64px;
+  background: linear-gradient(180deg, #383875, #20194f);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-inline: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-button {
+  width: 30px;
+  height: 32px;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.menu-button span { width: 100%; height: 2px; background: currentColor; }
+
+.scene {
+  min-height: calc(100svh - 64px);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  background: #15116b url("background.png") center / cover no-repeat;
+}
+.scene-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #1c154c66, #3421a51a 50%, #1c154c66), #4031d12b;
+}
+
+.centerpiece {
+  width: min(70%, 1000px);
+  text-align: center;
+  padding-block: clamp(100px, 14vh, 180px) clamp(70px, 9vh, 120px);
+}
+h1 {
+  margin: 0 0 clamp(65px, 9vh, 125px);
+  font-size: clamp(16px, 2.6vw, 36px);
+  font-weight: 400;
+  letter-spacing: .2em;
+  white-space: nowrap;
+  text-shadow: 0 0 10px #c1b4ff66;
+}
+.countdown {
+  display: grid;
+  grid-template-columns: 1fr .19fr 1fr .19fr 1fr;
+  align-items: start;
+  width: 100%;
+  filter: drop-shadow(0 0 5px #d9cfff40);
+}
+.time-part { min-width: 0; }
+.digits { display: flex; justify-content: center; gap: 13%; aspect-ratio: 1.48; }
+.digit { display: block; width: 39%; height: 100%; overflow: visible; }
+.separator {
+  aspect-ratio: .24;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-block: 12%;
+}
+.separator i { width: 22%; aspect-ratio: .75; background: currentColor; border-radius: 1px; }
+.unit { display: block; height: clamp(14px, 1.8vw, 24px); margin-top: clamp(25px, 3.4vw, 46px); }
+.unit svg, .coming-soon svg { display: block; height: 100%; max-width: 100%; margin-inline: auto; overflow: visible; }
+.coming-soon { height: clamp(15px, 1.9vw, 26px); margin: clamp(70px, 10vh, 140px) 0 0; }
+.verse {
+  position: absolute;
+  top: 28%;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-align: start;
+  font-size: clamp(14px, 1.7vw, 24px);
+  line-height: 2.6;
+  letter-spacing: .42em;
+  font-weight: 400;
+  opacity: .65;
+  text-shadow: 0 0 7px #c9bfff66;
+}
+.verse-left { left: 5%; }
+.verse-right { right: 5%; }
+.no-script { font-size: 13px; letter-spacing: .1em; }
+
+dialog {
+  width: min(88vw, 480px);
+  border: 1px solid #c3baff66;
+  padding: 64px 32px 40px;
+  color: inherit;
+  background: #17133bf5;
+  text-align: center;
+  box-shadow: 0 0 80px #08032099;
+}
+dialog::backdrop { background: #04031a99; backdrop-filter: blur(6px); }
+dialog h2 { font-size: 20px; font-weight: 400; letter-spacing: .1em; }
+dialog p { font-size: 14px; line-height: 2; }
+.dialog-note { opacity: .65; }
+.close-button { position: absolute; top: 12px; right: 18px; border: 0; background: none; font-size: 28px; cursor: pointer; }
+
+@media (max-width: 600px) {
+  .site-header { height: 48px; padding-inline: 20px; }
+  .scene { min-height: calc(100svh - 48px); }
+  .centerpiece { width: 88%; padding-block: 120px; }
+  h1 { font-size: clamp(15px, 4.2vw, 25px); letter-spacing: .12em; margin-bottom: 80px; }
+  .unit { margin-top: 24px; height: 13px; }
+  .coming-soon { margin-top: 80px; height: 17px; }
+}
+
+@media (max-height: 520px) and (min-width: 601px) and (orientation: landscape) {
+  .site-header { height: 42px; }
+  .scene { min-height: calc(100svh - 42px); }
+  .centerpiece { width: min(65%, 640px); padding-block: 38px; }
+  h1 { margin-bottom: 35px; font-size: 22px; }
+  .unit { margin-top: 18px; height: 15px; }
+  .coming-soon { margin-top: 32px; height: 17px; }
+  .verse { top: 20%; font-size: 11px; }
+}
+
+/* Phones and tablets: only portrait moves the verses above/below the timer. */
+@media (max-width: 1100px) and (orientation: portrait) {
+  .centerpiece {
+    width: 82%;
+    padding-block: clamp(36px, 6svh, 72px);
+  }
+  h1 {
+    font-size: clamp(18px, 3.4vw, 32px);
+    letter-spacing: .12em;
+    margin-bottom: clamp(32px, 5svh, 64px);
+  }
+  .verse {
+    position: static;
+    writing-mode: horizontal-tb;
+    text-align: center;
+    font-size: clamp(14px, 1.7vw, 24px);
+    line-height: 2.3;
+    letter-spacing: .18em;
+    opacity: .75;
+  }
+  .verse-left { margin-bottom: clamp(28px, 4.5svh, 56px); }
+  .verse-right { margin-top: clamp(28px, 4.5svh, 56px); }
+  .unit { height: clamp(13px, 1.8vw, 20px); margin-top: clamp(20px, 3vw, 32px); }
+  .coming-soon { height: clamp(17px, 2vw, 24px); margin-top: clamp(32px, 5svh, 64px); }
+}
