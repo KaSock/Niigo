@@ -166,8 +166,8 @@ dialog p { font-size: 14px; line-height: 2; }
     letter-spacing: .18em;
     opacity: .75;
   }
-  .verse-left { margin-bottom: clamp(28px, 4.5svh, 56px); }
-  .verse-right { margin-top: clamp(28px, 4.5svh, 56px); }
+  .verse-right { margin-bottom: clamp(28px, 4.5svh, 56px); }
+  .verse-left { margin-top: clamp(28px, 4.5svh, 56px); }
   .unit { height: clamp(13px, 1.8vw, 20px); margin-top: clamp(20px, 3vw, 32px); }
   .coming-soon { height: clamp(17px, 2vw, 24px); margin-top: clamp(32px, 5svh, 64px); }
 }
