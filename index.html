@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#171549">
     <meta name="description" content="25時、ナイトコードで。 — 次の25時まで。">
     <title>25時、ナイトコードで。</title>
+    <link rel="preload" as="image" href="background.webp" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <script src="countdown.js" defer></script>
     <script async src="https://www.googletagmanager.com/gtm.js?id=G-ZVYXMWZWC1"></script>
@@ -33,6 +34,9 @@
     <audio id="background-music" src="background.mp3" autoplay loop preload="none"></audio>
 
     <main class="scene">
+      <video class="scene-video" muted loop playsinline preload="none" poster="background.webp" aria-hidden="true" disablepictureinpicture>
+        <source data-src="background.mp4" type="video/mp4">
+      </video>
       <div class="scene-shade" aria-hidden="true"></div>
       <section class="centerpiece" aria-labelledby="site-title">
         <h1 id="site-title"><img class="title-art" src="assets/title.svg" width="456" height="42" alt="25時、ナイトコードで。"></h1>

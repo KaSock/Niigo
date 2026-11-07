@@ -184,7 +184,71 @@ function startMusic() {
   void play();
 }
 
+async function startBackgroundVideo() {
+  const video = document.querySelector(".scene-video");
+  const source = video?.querySelector("source[data-src]");
+  if (!source) return;
+
+  const poster = new Image();
+  poster.src = video.poster;
+  let posterTimeout;
+  await Promise.race([
+    poster.decode().catch(() => {}),
+    new Promise(resolve => { posterTimeout = window.setTimeout(resolve, 2500); }),
+  ]);
+  window.clearTimeout(posterTimeout);
+  await new Promise(resolve => {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(resolve));
+  });
+
+  function reveal() {
+    if (!video.error && !video.paused) video.classList.add("is-ready");
+  }
+
+  function stopGestureRetry() {
+    document.removeEventListener("click", retryOnGesture);
+    document.removeEventListener("keydown", retryOnGesture);
+  }
+
+  async function play() {
+    try {
+      await video.play();
+    } catch (error) {
+      if (error.name === "NotAllowedError") {
+        document.addEventListener("click", retryOnGesture);
+        document.addEventListener("keydown", retryOnGesture);
+      }
+    }
+  }
+
+  function retryOnGesture(event) {
+    if (event.type === "keydown" && !["Enter", " "].includes(event.key)) return;
+    void play();
+  }
+
+  function showPoster() {
+    video.classList.remove("is-ready");
+    stopGestureRetry();
+  }
+
+  video.addEventListener("playing", () => {
+    stopGestureRetry();
+    if (typeof video.requestVideoFrameCallback === "function") {
+      video.requestVideoFrameCallback(reveal);
+    } else {
+      reveal();
+    }
+  });
+  video.addEventListener("error", showPoster);
+  source.addEventListener("error", showPoster);
+  video.muted = true;
+  source.src = source.dataset.src;
+  video.load();
+  await play();
+}
+
 if (typeof document !== "undefined") {
   startCountdown();
   startMusic();
+  void startBackgroundVideo();
 }
